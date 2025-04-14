@@ -7,6 +7,8 @@ import os
 from modules.data_loader import DataLoader
 from modules.spec_parser import ChartSpecParser
 from modules.chart_generator import ChartGenerator
+# Import simple authentication UI components
+from simple_auth_ui import show_login_page, show_signup_page, show_reset_password_page
 from custom_css import get_custom_css
 
 # Load environment variables
@@ -22,6 +24,18 @@ st.set_page_config(
 
 # Apply custom CSS with gradient background
 st.markdown(get_custom_css(), unsafe_allow_html=True)
+
+# Initialize session state for authentication
+if 'authenticated' not in st.session_state:
+    st.session_state['authenticated'] = False
+if 'show_login' not in st.session_state:
+    st.session_state['show_login'] = True
+if 'show_signup' not in st.session_state:
+    st.session_state['show_signup'] = False
+if 'show_reset' not in st.session_state:
+    st.session_state['show_reset'] = False
+if 'user' not in st.session_state:
+    st.session_state['user'] = None
 
 # Add custom CSS to remove any remaining gaps
 st.markdown("""
@@ -48,13 +62,7 @@ st.markdown("""
     
     /* Make sure columns take full width */
     .row-widget.stHorizontal {
-        width: 100% !important;
-    }
-    
-    /* Remove any padding from columns */
-    .row-widget.stHorizontal > div {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        flex: 1;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -98,6 +106,22 @@ def generate_sample_data():
     return pd.DataFrame(data)
 
 def main():
+    if not st.session_state['authenticated']:
+        if st.session_state['show_login']:
+            show_login_page()
+        elif st.session_state['show_signup']:
+            show_signup_page()
+        elif st.session_state['show_reset']:
+            show_reset_password_page()
+        return
+
+    # Add logout button in the sidebar
+    with st.sidebar:
+        if st.button("Logout"):
+            st.session_state['authenticated'] = False
+            st.session_state['user'] = None
+            st.rerun()
+
     # Sidebar with app info
     with st.sidebar:
         st.image("https://img.icons8.com/color/96/000000/dashboard.png", width=80)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="30" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Analytics text with chart elements -->
+    <g transform="translate(5,5)">
+        <!-- Bar chart icon -->
+        <rect x="0" y="10" width="4" height="10" fill="#2563EB"/>
+        <rect x="6" y="5" width="4" height="15" fill="#2563EB"/>
+        <rect x="12" y="8" width="4" height="12" fill="#2563EB"/>
+        <rect x="18" y="2" width="4" height="18" fill="#2563EB"/>
+        
+        <!-- Line chart -->
+        <path d="M30,15 L35,8 L40,12 L45,5" stroke="#2563EB" stroke-width="2"/>
+        
+        <!-- Pie chart -->
+        <circle cx="55" cy="10" r="8" stroke="#2563EB" stroke-width="2" fill="none"/>
+        <path d="M55,10 L55,2 A8,8 0 0,1 61,10 Z" fill="#2563EB"/>
+        
+        <!-- Text "Analytics" -->
+        <text x="70" y="15" font-family="Arial" font-size="12" font-weight="bold" fill="#2563EB">Analytics</text>
+    </g>
+</svg> 

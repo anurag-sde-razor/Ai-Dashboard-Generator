@@ -7,10 +7,24 @@ def get_custom_css():
     <style>
         /* Main background with gradient */
         .stApp {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e0e0e0 100%);
+            background: linear-gradient(135deg, #FFE5E2, #FFF0F0);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             max-width: 100% !important;
             padding: 0 !important;
             margin: 0 !important;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
         
         /* App container */
@@ -25,7 +39,7 @@ def get_custom_css():
         
         /* Sidebar styling */
         .css-1d391kg, section[data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(180deg, #DD4737 0%, #C13A2B 100%);
             padding: 1rem;
             color: white;
         }
@@ -41,7 +55,7 @@ def get_custom_css():
         
         /* Button styling */
         .stButton > button {
-            background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(90deg, #DD4737 0%, #C13A2B 100%);
             color: white;
             border: none;
             border-radius: 5px;
@@ -56,7 +70,7 @@ def get_custom_css():
         }
         
         .stButton > button:hover {
-            background: linear-gradient(90deg, #c0392b 0%, #a93226 100%);
+            background: linear-gradient(90deg, #C13A2B 0%, #A93226 100%);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transform: translateY(-2px);
         }
@@ -145,7 +159,7 @@ def get_custom_css():
         
         .stTabs [aria-selected="true"] {
             background-color: rgba(255, 255, 255, 0.9);
-            border-bottom: 3px solid #e74c3c;
+            border-bottom: 3px solid #DD4737;
         }
         
         /* Footer styling */

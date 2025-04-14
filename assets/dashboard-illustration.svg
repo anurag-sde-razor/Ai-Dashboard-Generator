@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background shape -->
+    <path d="M50,150 C50,80 120,30 200,30 C280,30 350,80 350,150 C350,220 280,270 200,270 C120,270 50,220 50,150" fill="#EBF4FF" opacity="0.5"/>
+    
+    <!-- Dashboard card 1 - Line chart -->
+    <rect x="80" y="60" width="120" height="80" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M90,100 L110,90 L130,110 L150,80 L170,95" stroke="#2563EB" stroke-width="2" fill="none"/>
+    <circle cx="110" cy="90" r="3" fill="#2563EB"/>
+    <circle cx="130" cy="110" r="3" fill="#2563EB"/>
+    <circle cx="150" cy="80" r="3" fill="#2563EB"/>
+    
+    <!-- Dashboard card 2 - Bar chart -->
+    <rect x="220" y="60" width="120" height="80" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <rect x="230" y="100" width="15" height="30" fill="#2563EB"/>
+    <rect x="255" y="80" width="15" height="50" fill="#2563EB"/>
+    <rect x="280" y="90" width="15" height="40" fill="#2563EB"/>
+    <rect x="305" y="70" width="15" height="60" fill="#2563EB"/>
+    
+    <!-- Dashboard card 3 - Pie chart -->
+    <rect x="80" y="160" width="120" height="80" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <path d="M140,200 L140,170 A30,30 0 0,1 165,200 Z" fill="#2563EB"/>
+    <path d="M140,200 L165,200 A30,30 0 0,1 140,230 Z" fill="#60A5FA"/>
+    <path d="M140,200 L140,230 A30,30 0 0,1 115,200 Z" fill="#93C5FD"/>
+    <path d="M140,200 L115,200 A30,30 0 0,1 140,170 Z" fill="#BFDBFE"/>
+    
+    <!-- Dashboard card 4 - Stats/metrics -->
+    <rect x="220" y="160" width="120" height="80" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="230" y1="180" x2="290" y2="180" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="230" y1="200" x2="270" y2="200" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="230" y1="220" x2="280" y2="220" stroke="#E2E8F0" stroke-width="2"/>
+    
+    <!-- Decorative elements -->
+    <circle cx="50" cy="50" r="5" fill="#60A5FA"/>
+    <circle cx="350" cy="250" r="5" fill="#60A5FA"/>
+    <circle cx="200" cy="30" r="5" fill="#60A5FA"/>
+</svg> 
