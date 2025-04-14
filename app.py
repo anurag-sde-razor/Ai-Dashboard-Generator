@@ -536,25 +536,30 @@ def main():
                 try:
                     # Check if there's a date column
                     date_cols = [col for col in df.columns if 'date' in col.lower() or 'time' in col.lower()]
-                    # Get numeric columns for values
                     numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
-                    
+
                     if date_cols and numeric_cols:
-                        # Create a time series chart
-                        chart_generator = ChartGenerator()
-                        fig = chart_generator.create_time_series(
-                            df,
-                            date_cols[0],         # Use first date column as time field
-                            numeric_cols[0],      # Use first numeric column as value field
-                            None,                 # No group field
-                            f"Time Series: {numeric_cols[0]} over time"
-                        )
-                        
-                        # Add zoom and download features with wider layout
+                        import plotly.graph_objs as go
+
+                        # Create a time series chart manually for all numeric columns
+                        fig = go.Figure()
+                        time_col = date_cols[0]
+
+                        for col in numeric_cols:
+                            fig.add_trace(go.Scatter(
+                                x=df[time_col],
+                                y=df[col],
+                                mode='lines',
+                                name=col
+                            ))
+
                         fig.update_layout(
+                            title="Time Series: All Numeric Columns over Time",
+                            xaxis_title=time_col,
+                            yaxis_title="Value",
                             height=500,
-                            width=1800,  # Increased width even more
-                            margin=dict(l=10, r=10, t=40, b=10),  # Reduced side margins even more
+                            width=1800,
+                            margin=dict(l=10, r=10, t=40, b=10),
                             hovermode='closest',
                             showlegend=True,
                             legend=dict(
@@ -565,8 +570,7 @@ def main():
                                 x=1
                             )
                         )
-                        
-                        # Use full container width for the chart
+
                         st.plotly_chart(fig, use_container_width=True)
                         st.download_button(
                             label="Download Time Series Chart",
@@ -576,11 +580,12 @@ def main():
                             key="download_time_series"
                         )
                     else:
-                        st.error("Need a date column and a numeric column for a time series chart")
+                        st.error("Need a date column and at least one numeric column for a time series chart")
                 except Exception as e:
                     st.error(f"Error creating time series chart: {str(e)}")
             else:
                 st.error("Please upload a data file or use sample data first!")
+
     
     with chart_buttons2[1]:
         if st.button("📊 Statistics", key="statistics"):
